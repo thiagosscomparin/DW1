@@ -45,3 +45,4 @@ function funcaoCalcular() {
     document.getElementById("respClass").innerHTML = classi;
 }
 }
+}

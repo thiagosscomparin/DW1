@@ -6,7 +6,7 @@ function funcaoCalcular() {
       document.getElementById("respIMC").innerHTML = imc.toFixed(2);
       
        if (peso === "" || altura === "" || peso <= 0 || altura <= 0) {
-        aviso.innerHTML = "⚠️ Preencha os campos corretamente!";
+        aviso.innerHTML = " Preencha os campos corretamente!";
         aviso.style.display = "block";
         return;
     }

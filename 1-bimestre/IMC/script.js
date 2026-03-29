@@ -31,5 +31,5 @@
 
     document.getElementById("respClass").innerHTML = classi;
 }
-}
-}
+
+

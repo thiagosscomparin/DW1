@@ -1,17 +1,4 @@
-function funcaoCalcular() {
-    let classi ="";
-    let peso = parseFloat(document.getElementById("inputPeso").value);
-    let altura = parseFloat(document.getElementById("inputAltura").value);
-    let imc = peso / (altura * altura);
-      document.getElementById("respIMC").innerHTML = imc.toFixed(2);
-      
-       if (peso === "" || altura === "" || peso <= 0 || altura <= 0) {
-        aviso.innerHTML = " Preencha os campos corretamente!";
-        aviso.style.display = "block";
-        return;
-    }
-
-   function funcaoCalcular() {
+  function funcaoCalcular() {
     let classi = "";
     let peso = parseFloat(document.getElementById("inputPeso").value);
     let altura = parseFloat(document.getElementById("inputAltura").value);

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Placar Esportivo</title>
+    <link rel="stylesheet" href="placar.css">
+</head>
+<body>
+
+    <h1>PLACAR ESPORTIVO</h1>
+
+    <div class="placar">
+
+        <div class="time">
+            <h2>TIME A</h2>
+            <p id="pontosA">0</p>
+            <p class="sets">Sets: <span id="setsA">0</span></p>
+
+            <button onclick="somarPonto('A')">+ Ponto</button>
+            <button onclick="tirarPonto('A')">- Ponto</button>
+            <button onclick="somarSet('A')">+ Set</button>
+            <button onclick="tirarSet('A')">- Set</button>
+        </div>
+
+        <div class="versus">X</div>
+
+        <div class="time">
+            <h2>TIME B</h2>
+            <p id="pontosB">0</p>
+            <p class="sets">Sets: <span id="setsB">0</span></p>
+
+            <button onclick="somarPonto('B')">+ Ponto</button>
+            <button onclick="tirarPonto('B')">- Ponto</button>
+            <button onclick="somarSet('B')">+ Set</button>
+            <button onclick="tirarSet('B')">- Set</button>
+        </div>
+
+    </div>
+
+    <div class="controle">
+        <button onclick="zerarPlacar()">Zerar Tudo</button>
+    </div>
+
+    <h2>Histórico de Pontos</h2>
+    <div id="historico"></div>
+
+    <script src="placar.js"></script>
+
+</body>
+</html>

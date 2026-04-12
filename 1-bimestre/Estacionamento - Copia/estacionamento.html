@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Estacionamento</title>
+    <link rel="stylesheet" href="estacionamento.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Calculadora de Tarifas</h1>
+
+    <div class="field">
+        <label>Data e Hora de Entrada</label>
+        <input type="datetime-local" id="entrada">
+    </div>
+
+    <div class="field">
+        <label>Data e Hora de Saída</label>
+        <input type="datetime-local" id="saida">
+    </div>
+
+    <div class="check-field">
+        <input type="checkbox" id="inputTamanho">
+        <label>Veículo grande (+25%)</label>
+    </div>
+
+    <div class="check-field">
+        <input type="checkbox" id="inputFrequente">
+        <label>Cliente frequente (-5%)</label>
+    </div>
+
+    <button onclick="fcalcular()">Calcular Tarifa</button>
+
+    <div class="result-box">
+        <strong>Resultado:</strong>
+        <span id="resp">—</span>
+    </div>
+</div>
+
+<script src="estacionamento.js"></script>
+</body>
+</html>

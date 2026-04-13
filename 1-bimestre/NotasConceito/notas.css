@@ -1,73 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0d0d0d;
+  --surface: #151515;
+  --border: #2a2a2a;
+  --accent: #c8f050;
+  --accent-dim: #a8cc3a;
+  --text: #f0f0f0;
+  --muted: #666;
+  --input-bg: #1c1c1c;
+  --radius: 4px;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  background-color: var(--bg);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      #1a1a1a 39px,
+      #1a1a1a 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 39px,
+      #1a1a1a 39px,
+      #1a1a1a 40px
+    );
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Mono', monospace;
+  color: var(--text);
+  padding: 2rem;
 }
 
 .container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-    width: 350px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  width: 100%;
+  max-width: 480px;
+  padding: 2.5rem 2.5rem 2rem;
+  position: relative;
+  animation: slideIn 0.4s ease both;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.container::before {
+  content: '// notas.calc';
+  position: absolute;
+  top: -1.6rem;
+  left: 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
 }
 
 h1 {
-    text-align: center;
-    color: #1e3c72;
-    margin-bottom: 20px;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.1;
 }
 
 label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-    color: #333;
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+  margin-top: 1rem;
 }
 
-input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #bbb;
-    border-radius: 10px;
-    font-size: 14px;
-    box-sizing: border-box;
+label:first-of-type {
+  margin-top: 0;
 }
 
-input:focus {
-    outline: none;
-    border-color: #2a5298;
-    box-shadow: 0 0 5px rgba(42, 82, 152, 0.5);
+input[type="number"],
+input[type="text"] {
+  display: block;
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.95rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  -moz-appearance: textfield;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(200, 240, 80, 0.12);
+}
+
+/* Agrupa as 4 notas em grid 2x2 */
+label[for="inputnota1"] { margin-top: 1rem; }
+
+label[for="inputnota1"] ~ label[for="inputnota2"],
+label[for="inputnota1"] ~ label[for="inputnota3"],
+label[for="inputnota1"] ~ label[for="inputnota4"] {
+  margin-top: 0;
+}
+
+.notas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1rem;
+  margin-top: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.notas-grid input {
+  margin-top: 0;
+}
+
+/* Estilo do botão */
 input[type="button"] {
-    background: linear-gradient(135deg, #2a5298, #1e3c72);
-    color: white;
-    border: none;
-    margin-top: 20px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: 0.3s;
+  display: block;
+  width: 100%;
+  margin-top: 1.75rem;
+  background: var(--accent);
+  color: #0d0d0d;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  padding: 0.85rem;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: background 0.15s, transform 0.1s;
 }
 
 input[type="button"]:hover {
-    transform: scale(1.03);
-    opacity: 0.95;
+  background: var(--accent-dim);
 }
 
+input[type="button"]:active {
+  transform: scale(0.98);
+}
+
+/* Resultado */
 p {
-    margin-top: 20px;
-    background-color: #f4f4f4;
-    padding: 12px;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 16px;
-    color: #222;
+  margin-top: 1.25rem;
+  padding: 0.85rem 0.75rem;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+p strong {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 400;
+}
+
+#respMA {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--accent);
+  font-family: 'Syne', sans-serif;
 }

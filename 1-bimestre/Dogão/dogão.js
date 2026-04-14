@@ -5,6 +5,11 @@ function calcularTotal() {
     const RefriP = document.getElementById('inputRefriP').value * 5;
     const RefriG = document.getElementById('inputRefriG').value * 8;
 
+
     const total = dogBasico + dogCompleto + Xsalada + RefriP + RefriG;
+    if (total < 0) {
+        alert('Por favor, insira valores válidos para os pedidos.');
+        return;
+    }
     document.getElementById('resultado').innerText = `Total: R$ ${total.toFixed(2)}`;
 }

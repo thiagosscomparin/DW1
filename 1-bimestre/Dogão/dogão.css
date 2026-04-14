@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap');
+
+:root {
+  --amarelo: #FFD600;
+  --vermelho: #E8260B;
+  --vermelho-escuro: #B01A03;
+  --creme: #FFF8E7;
+  --marrom: #3D1C02;
+  --laranja: #FF6B2B;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--vermelho);
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,214,0,0.18) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(255,107,43,0.15) 0%, transparent 40%),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 38px,
+      rgba(255,255,255,0.03) 38px,
+      rgba(255,255,255,0.03) 40px
+    );
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px 60px;
+}
+
+.card {
+  background: var(--creme);
+  border-radius: 28px;
+  padding: 40px 36px 36px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow:
+    0 8px 0px var(--vermelho-escuro),
+    0 16px 40px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+  animation: popIn 0.5s cubic-bezier(.34,1.56,.64,1) both;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--amarelo) 0px,
+    var(--amarelo) 20px,
+    var(--vermelho) 20px,
+    var(--vermelho) 40px
+  );
+}
+
+h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 3rem;
+  color: var(--vermelho);
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+  text-shadow: 3px 3px 0px var(--amarelo);
+  line-height: 1;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--marrom);
+  font-size: 0.8rem;
+  font-weight: 700;
+  opacity: 0.5;
+  margin-bottom: 28px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.secao-titulo {
+  font-family: 'Fredoka One', cursive;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--vermelho);
+  margin-bottom: 10px;
+  margin-top: 20px;
+  padding-left: 4px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border: 2px solid rgba(61,28,2,0.08);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  gap: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.item:hover {
+  border-color: var(--amarelo);
+  box-shadow: 0 4px 16px rgba(255,214,0,0.25);
+  transform: translateY(-2px);
+}
+
+.item label {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.item-nome {
+  font-weight: 700;
+  color: var(--marrom);
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.item-preco {
+  font-size: 0.82rem;
+  color: var(--vermelho);
+  font-weight: 700;
+}
+
+input[type="number"] {
+  width: 72px;
+  height: 40px;
+  border: 2px solid rgba(61,28,2,0.15);
+  border-radius: 12px;
+  text-align: center;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem;
+  color: var(--marrom);
+  background: var(--creme);
+  outline: none;
+  flex-shrink: 0;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"]:focus {
+  border-color: var(--amarelo);
+  box-shadow: 0 0 0 3px rgba(255,214,0,0.3);
+}
+
+#calcular {
+  display: block;
+  width: 100%;
+  margin-top: 28px;
+  padding: 16px;
+  background: var(--vermelho);
+  color: white;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.25rem;
+  letter-spacing: 1.5px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 var(--vermelho-escuro);
+  transition: background 0.2s, transform 0.1s, box-shadow 0.1s;
+}
+
+#calcular:hover {
+  background: var(--laranja);
+}
+
+#calcular:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 var(--vermelho-escuro);
+}
+
+#resultado {
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.5rem;
+  color: var(--marrom);
+  background: var(--amarelo);
+  border-radius: 14px;
+  padding: 14px 20px;
+  box-shadow: 0 4px 0 rgba(61,28,2,0.15);
+  animation: fadeUp 0.3s ease both;
+}
+
+#resultado:empty {
+  display: none;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

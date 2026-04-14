@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dogão.css">
+</head>
+<body>
+    <div class="card">
+        <h1>Dogão</h1>
+        <p class="subtitle">Cardápio</p>
+
+        <p class="secao-titulo">Lanches</p>
+
+        <div class="item">
+            <label for="inputdogbasico"><span class="item-nome">Cachorro quente básico</span><span class="item-preco">R$22,00</span></label>
+            <input type="number" name="inputdogbasico" id="inputdogbasico" min="0" value="0">
+        </div>
+
+        <div class="item">
+            <label for="inputdogcompleto"><span class="item-nome">Cachorro quente duplo</span><span class="item-preco">R$26,00</span></label>
+            <input type="number" name="inputdogcompleto" id="inputdogcompleto" min="0" value="0">
+        </div>
+
+        <div class="item">
+            <label for="inputXsalada"><span class="item-nome">X-salada</span><span class="item-preco">R$29,00</span></label>
+            <input type="number" name="inputXsalada" id="inputXsalada" min="0" value="0">
+        </div>
+
+        <p class="secao-titulo">Bebidas</p>
+
+        <div class="item">
+            <label for="inputRefriP"><span class="item-nome">Refrigerante 350mL</span><span class="item-preco">R$5,00</span></label>
+            <input type="number" name="inputRefriP" id="inputRefriP" min="0" value="0">
+        </div>
+
+        <div class="item">
+            <label for="inputRefriG"><span class="item-nome">Refrigerante 1L</span><span class="item-preco">R$8,00</span></label>
+            <input type="number" name="inputRefriG" id="inputRefriG" min="0" value="0">
+        </div>
+
+        <button id="calcular" onclick="calcularTotal()">Calcular</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script src="dogão.js"></script>
+</body>
+</html>

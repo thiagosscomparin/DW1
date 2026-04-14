@@ -7,9 +7,10 @@ function calcularTotal() {
 
 
     const total = dogBasico + dogCompleto + Xsalada + RefriP + RefriG;
-    if (total < 0) {
+    if (total <= 0) {
         alert('Por favor, insira valores válidos para os pedidos.');
         return;
     }
+
     document.getElementById('resultado').innerText = `Total: R$ ${total.toFixed(2)}`;
 }

@@ -1,0 +1,66 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Container estilo documento */
+body::before {
+    content: "";
+}
+
+/* Caixa principal */
+#msg {
+    background: white;
+    padding: 30px;
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    line-height: 1.6;
+    font-size: 18px;
+    text-align: justify;
+}
+
+/* Título */
+h1 {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+/* Destaques */
+strong {
+    color: #0077ff;
+}
+
+/* Linha tipo assinatura */
+#msg::after {
+    content: "____________________________________\A Assinatura do Responsável";
+    white-space: pre;
+    display: block;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    #msg {
+        font-size: 16px;
+        padding: 20px;
+    }
+}

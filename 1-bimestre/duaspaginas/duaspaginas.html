@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Oi 💖</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #ff4d6d;
+        }
+
+        p {
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        #btsim {
+            background: #ff4d6d;
+            color: white;
+        }
+
+        #btsim:hover {
+            background: #ff1e4d;
+        }
+
+        #btnao {
+            background: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Bom dia linda 💖</h1>
+    <p>Você gosta de mim?? 🤨</p>
+
+    <button id="btsim">Sim</button>
+    <button id="btnao">Não</button>
+</div>
+
+<script>
+    const sim = document.getElementById('btsim');
+    const nao = document.getElementById('btnao');
+
+    let tentativas = 0;
+    sim.style.transform = "scale(" + (1 + tentativas * 0.1) + ")";
+
+    
+    sim.addEventListener('click', () => {
+        window.location.href = "surpresa2.html?tentativas=" + tentativas;
+    });
+
+  const container = document.querySelector(".container");
+
+nao.addEventListener("mouseover", function() {
+    tentativas++;
+
+    const larguraContainer = container.clientWidth;
+    const alturaContainer = container.clientHeight;
+
+    const larguraBotao = nao.offsetWidth;
+    const alturaBotao = nao.offsetHeight;
+
+    const x = Math.random() * (larguraContainer - larguraBotao);
+    const y = Math.random() * (alturaContainer - alturaBotao);
+
+    nao.style.position = "absolute";
+    nao.style.left = x + "px";
+    nao.style.top = y + "px";
+});
+</script>
+
+</body>
+</html>

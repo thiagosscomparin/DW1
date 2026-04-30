@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Surpresa 💖</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 300px;
+        }
+
+        h1 {
+            color: #ff4d6d;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #444;
+            margin: 10px 0;
+        }
+
+        #msg {
+            font-weight: bold;
+            color: #ff4d6d;
+        }
+
+        img {
+            margin-top: 15px;
+            width: 200px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        img:hover {
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Surpresa pra você 💖</h1>
+
+    <p id="msg"></p>
+
+    <p>Mas eu sei que você gosta de mim </p>
+    <p>Clica nessa foto linda e veja o q eu penso de tu</p>
+
+    <img src="ela.jpeg" id="foto">
+
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const tentativas = params.get("tentativas");
+
+    document.getElementById("msg").innerHTML =
+    "Você tentou clicar em NÃO " + tentativas + " vezes 😂❤️";
+
+    const foto = document.getElementById("foto");
+
+    foto.addEventListener("click", function() {
+        window.location.href = "https://www.tiktok.com/@aquela_cenaa/video/7113652540125859077";
+    });
+</script>
+
+</body>
+</html>

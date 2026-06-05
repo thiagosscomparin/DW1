@@ -1,0 +1,44 @@
+body {
+    font-family: monospace;
+    background: #0f0f0f;
+    color: #00ff88;
+    padding: 30px;
+}
+
+.wrapper {
+    max-width: 900px;
+    margin: auto;
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #00ff88;
+}
+
+h1 {
+    text-align: center;
+    color: #00ff88;
+}
+
+button {
+    background: transparent;
+    border: 1px solid #00ff88;
+    color: #00ff88;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #00ff88;
+    color: black;
+}
+
+table {
+    width: 100%;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #00ff88;
+    text-align: center;
+}

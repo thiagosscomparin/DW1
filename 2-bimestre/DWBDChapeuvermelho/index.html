@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chapéuzinho vermelho</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+    <h1>Consulta estoque</h1>
+    
+    <div class="container">
+        <h3>QUAL A SITUAÇÃO DO ESTOQUE</h3>
+        <button onclick="listarTodas()">vizualizar estoque</button>
+        <div id="resultadoTodas" class="resultado">...</div>
+    </div>
+    <div class="btn-voltar">
+    <button onclick="window.location.href='mensagens.html'"> <- voltar para 💌 Mensagens</button>
+    </div>
+
+    <script>
+        const enderecoServidor = 'localhost';
+        const porta = '3001';
+
+        async function listarTodas() {
+            try {
+                const response = await fetch(`http://${enderecoServidor}:${porta}/produtos`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+
+                const data = await response.json();
+
+                if (data.sucesso && data.produtos.length > 0) {
+                    let tabela = '<table>';
+                    tabela += '<tr><th>ID</th><th>Nome</th><th>Quantidade</th><th>Mínimo</th><th>Máximo</th><th>Repor</th></tr>';
+
+                    data.produtos.forEach(produto => {
+                        let quantidadeRepor = 'OK';
+                        if (produto.quantidade_produto < produto.quantidade_minima_produto) {
+                            quantidadeRepor = produto.quantidade_maxima_produto - produto.quantidade_produto;
+                        }
+
+                        tabela += `<tr>
+                            <td>${produto.id_produto}</td>
+                            <td>${produto.nome_produto}</td>
+                            <td>${produto.quantidade_produto}</td>
+                            <td>${produto.quantidade_minima_produto}</td>
+                            <td>${produto.quantidade_maxima_produto}</td>
+                            <td>${quantidadeRepor}</td>
+                        </tr>`;
+                    });
+
+                    tabela += '</table>';
+                    document.getElementById('resultadoTodas').innerHTML = tabela;
+
+                } else if (data.sucesso && data.produtos.length === 0) {
+                    document.getElementById('resultadoTodas').innerHTML = '<span>Nenhum produto cadastrado</span>';
+                } else {
+                    document.getElementById('resultadoTodas').innerHTML = `<span class="erro">${data.mensagem}</span>`;
+                }
+
+            } catch (error) {
+                console.error('Erro:', error);
+                document.getElementById('resultadoTodas').innerHTML = '<span class="erro">Erro na comunicação com o servidor</span>';
+            }
+        }
+
+    </script>
+    </div>
+</body>
+
+</html>
